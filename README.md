@@ -1,3 +1,3 @@
-[![GoReportCard](https://goreportcard.com/badge/github.com/practicum/sandbox)](https://goreportcard.com/report/github.com/practicum/sandbox)
+[![GoReportCard](http://bit.ly/2lD2LHq)](https://bit.ly/2lDfs5d)
 
 # sandbox
