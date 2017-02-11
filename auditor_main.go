@@ -6,17 +6,20 @@ import (
 
 func main() {
 	s := ", x"
-	// coment with a mispeling in it on porpose.
+	// coment with a mispeling in it on purpose.
 	fmt.Println("auditor_main", s)
-	s = " ineffectual assignment"
+
 	{
-		s := "shadow"
+		e, s := "e", "shadow"
 		fmt.Println(s)
-		fmt.Print("%s %d") // should be linted
+		fmt.Printf("%s %d\n", e, 4)
 	}
 }
 
 // this funcion is badly doc'ed and not used
 func unreached() {
-	fmt.Println("unreached")
+	if true {
+	} else {
+		fmt.Println("unreached")
+	}
 }
