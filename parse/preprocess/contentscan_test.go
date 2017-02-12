@@ -9,8 +9,8 @@ import (
 	localtests "github.com/practicum/sandbox/testing"
 )
 
-// a dummy type created in the preprocess package as a trick to retrieve the package name
-//    with thanks to: http://stackoverflow.com/a/25263604/10278
+// reflectionToy is a dummy type created in the preprocess package as a trick to
+// retrieve the package name. http://stackoverflow.com/a/25263604/10278
 type reflectionToy struct{}
 
 func TestScan(t *testing.T) {

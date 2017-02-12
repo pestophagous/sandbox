@@ -36,7 +36,7 @@ func DataAssetFullPath(filebasename string, typeFromTargetPkg interface{}) strin
 	// As of Feb 2017, using: go version go1.7.5 darwin/amd64
 	// retrieves a string of the form: github.com/username/project/directory/packagename
 	packagePath := reflect.TypeOf(typeFromTargetPkg).PkgPath()
-	// Learned the above PkgPath trick here: http://stackoverflow.com/a/25263604/10278
+	// Using PkgPath trick from: http://stackoverflow.com/a/25263604/10278
 
 	packagePath = "src/" + packagePath
 
@@ -44,7 +44,7 @@ func DataAssetFullPath(filebasename string, typeFromTargetPkg interface{}) strin
 	// at this point, subparts looks like: [src github.com username project]
 	subparts = append(subparts, assetFolder)
 	subparts = append(subparts, filebasename)
-	// now subparts looks like: [src github.com username project assetFolder assetbasename.txt]
+	// subparts: [src github.com username project assetFolder assetbasename.txt]
 
 	pathback := path.Join(subparts...)
 

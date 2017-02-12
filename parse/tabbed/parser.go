@@ -13,10 +13,26 @@ import (
 
 const columnsPerLine = 4
 
-// Mnemonic for the layout cue: 1, 2, 3, 4, 5, 6, 7
-// 1(month) 2(day) 3(pm) 4(min) 5(sec) 6(year) 7(timezone)
-// 01/02 03:04:05PM '06 -0700
-// http://stackoverflow.com/a/25845833/10278
+/*
+ Go's time package provides its users with a distinctive mechanism for
+ specifying how datetime strings should be formatted.
+
+ If you are used to strftime/strptime usage with formatters that look like:
+ "%Y%m%d %H:%M:%S", then prepare for a shock.
+
+ In Go you take the magic numbers 1-7 and use them to write out a datetime
+ according to the string layout of your choice.
+
+ Mnemonic for the layout: 1, 2, 3, 4, 5, 6, 7
+ 1(month) 2(day) 3(pm) 4(min) 5(sec) 6(year) 7(timezone), as in:
+
+      "01/02 03:04:05PM '06 -0700"
+
+ We want RFC 3339 without any fractional seconds, hence:
+      "2006-01-02T15:04:05Z"
+
+  http://stackoverflow.com/a/25845833/10278
+*/
 const requiredTimeLayout = "2006-01-02T15:04:05Z"
 
 func Parse(pathtofile string) ([]*item.Item, error) {
@@ -53,9 +69,10 @@ func Parse(pathtofile string) ([]*item.Item, error) {
 
 func panicIfVersionLineIsBad(versionString string) {
 	const versionPrefix = "v"
-	panicMsg := "Invalid file. "
-	panicMsg += "First content line must contain version code starting with prefix: %s"
 	if !strings.HasPrefix(versionString, versionPrefix) {
+		panicMsg := "Invalid file. "
+		panicMsg += "First content line must contain "
+		panicMsg += "version code starting with prefix: %s"
 		panic(fmt.Sprintf(panicMsg, versionPrefix))
 	}
 }
@@ -63,7 +80,8 @@ func panicIfVersionLineIsBad(versionString string) {
 func makeItemFromLine(line string) *item.Item {
 	pieces := strings.Split(line, "\t")
 	if len(pieces) != columnsPerLine {
-		panic(fmt.Sprintf("Invalid line layout. Needs %d columns. Line: %s", columnsPerLine, line))
+		panicMsg := "Invalid line layout. Needs %d columns. Line: %s"
+		panic(fmt.Sprintf(panicMsg, columnsPerLine, line))
 	}
 	return item.NewWithGivenTime(toId(pieces[0]),
 		toActionType(pieces[1]),
@@ -74,7 +92,8 @@ func makeItemFromLine(line string) *item.Item {
 func toId(text string) int {
 	i, err := strconv.Atoi(text)
 	if err != nil {
-		panic(fmt.Sprintf("Invalid ref id. Must be an integer. Line: %s", text))
+		panicMsg := "Invalid ref id. Must be an integer. Line: %s"
+		panic(fmt.Sprintf(panicMsg, text))
 	}
 
 	return i
@@ -98,7 +117,8 @@ func toDesc(text string) string {
 func toTime(text string) time.Time {
 	t, err := time.Parse(requiredTimeLayout, text)
 	if err != nil {
-		panic(fmt.Sprintf("Invalid datetime. Time parse error. %v. Line: %s", err, text))
+		panicMsg := "Invalid datetime. Time parse error. %v. Line: %s"
+		panic(fmt.Sprintf(panicMsg, err, text))
 	}
 
 	return t

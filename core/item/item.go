@@ -12,7 +12,7 @@ const (
 	Close
 )
 
-// ActionType.String method fulfills 'type Stringer interface' from Go 'fmt' package.
+// ActionType.String method fulfills 'Stringer interface' from Go 'fmt' package.
 func (t ActionType) String() string {
 	if t == Open {
 		return "++"
@@ -30,7 +30,11 @@ type Item struct {
 	timeUTC time.Time
 }
 
-func NewWithGivenTime(refid int, actionType ActionType, description string, timeInUTC time.Time) *Item {
+func NewWithGivenTime(refid int,
+	actionType ActionType,
+	description string,
+	timeInUTC time.Time) *Item {
+
 	return &Item{
 		id:      refid,
 		action:  actionType,
@@ -50,7 +54,11 @@ func NewAtTimeNow(refid int, actionType ActionType, description string) *Item {
 
 // Item.String method fulfills 'type Stringer interface' from Go 'fmt' package.
 func (i Item) String() string {
-	return fmt.Sprintf("%s %s %d: %s", i.LocalDatetimeStr(), i.action, i.id, i.desc)
+	return fmt.Sprintf("%s %s %d: %s",
+		i.LocalDatetimeStr(),
+		i.action,
+		i.id,
+		i.desc)
 }
 
 func (i Item) LocalDatetimeStr() string {
