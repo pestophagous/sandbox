@@ -1,0 +1,31 @@
+
+// comment line
+// blank lines ignored
+
+// first content line is (positive integer) file format version:
+{"format": 1}
+
+// refid, actiontype, description, UTC datetime RFC3339
+// 01/02 03:04:05PM '06 -0700     ||  Mon Jan 2 15:04:05 MST 2006  || 2006-01-02T15:04:05.000Z http://stackoverflow.com/a/25845833/10278
+
+
+{"id": 1, "action": "open", "description": "buy widgets", "RFC3339": "2017-01-01T19:11:17Z"}
+{"id": 2, "action": "open", "description": "call the office", "RFC3339": "2017-01-03T09:00:17Z"}
+{"id": 3, "action": "open", "description": "research XYZ", "RFC3339": "2017-01-04T22:49:17Z"}
+{"id": 3, "action": "close", "description": "", "RFC3339": "2017-01-06T12:38:17Z"}
+{"id": 4, "action": "open", "description": "paint shed", "RFC3339": "2017-01-08T02:27:17Z"}
+{"id": 1, "action": "close", "description": "", "RFC3339": "2017-01-09T16:16:17Z"}
+{"id": 4, "action": "close", "description": "", "RFC3339": "2017-01-11T06:05:17Z"}
+{"id": 5, "action": "open", "description": "fertilize plants", "RFC3339": "2017-01-12T19:54:17Z"}
+{"id": 2, "action": "close", "description": "", "RFC3339": "2017-01-14T09:43:17Z"}
+{"id": 6, "action": "open", "description": "fly the kite", "RFC3339": "2017-01-15T23:32:17Z"}
+{"id": 7, "action": "open", "description": "find scarf", "RFC3339": "2017-01-17T13:21:17Z"}
+{"id": 8, "action": "open", "description": "sell widgets", "RFC3339": "2017-01-19T03:10:17Z"}
+{"id": 7, "action": "close", "description": "", "RFC3339": "2017-01-20T16:59:17Z"}
+{"id": 6, "action": "close", "description": "", "RFC3339": "2017-01-22T06:48:17Z"}
+{"id": 8, "action": "close", "description": "", "RFC3339": "2017-01-23T20:37:17Z"}
+{"id": 9, "action": "open", "description": "read paper", "RFC3339": "2017-01-25T10:26:17Z"}
+{"id": 9, "action": "close", "description": "", "RFC3339": "2017-01-27T00:15:17Z"}
+{"id": 5, "action": "close", "description": "", "RFC3339": "2017-01-28T14:04:17Z"}
+{"id": 10, "action": "open", "description": "sign up", "RFC3339": "2017-01-30T03:53:17Z"}
+{"id": 10, "action": "close", "description": "", "RFC3339": "2017-01-31T17:42:17Z"}

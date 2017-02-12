@@ -1,0 +1,30 @@
+
+// comment line
+// blank lines ignored
+
+// first content line is (positive integer) file format version:
+v1
+
+// refid, actiontype, description, UTC datetime RFC3339
+// 01/02 03:04:05PM '06 -0700     ||  Mon Jan 2 15:04:05 MST 2006  || 2006-01-02T15:04:05.000Z http://stackoverflow.com/a/25845833/10278
+
+1	open	buy widgets	2017-01-01T19:11:17Z
+2	open	call the office	2017-01-03T09:00:17Z
+3	open	research XYZ	2017-01-04T22:49:17Z
+3	close		2017-01-06T12:38:17Z
+4	open	paint shed	2017-01-08T02:27:17Z
+1	close		2017-01-09T16:16:17Z
+4	close		2017-01-11T06:05:17Z
+5	open	fertilize plants	2017-01-12T19:54:17Z
+2	close		2017-01-14T09:43:17Z
+6	open	fly the kite	2017-01-15T23:32:17Z
+7	open	find scarf	2017-01-17T13:21:17Z
+8	open	sell widgets	2017-01-19T03:10:17Z
+7	close		2017-01-20T16:59:17Z
+6	close		2017-01-22T06:48:17Z
+8	close		2017-01-23T20:37:17Z
+9	open	read paper	2017-01-25T10:26:17Z
+9	close		2017-01-27T00:15:17Z
+5	close		2017-01-28T14:04:17Z
+10	open	sign up	2017-01-30T03:53:17Z
+10	close		2017-01-31T17:42:17Z
