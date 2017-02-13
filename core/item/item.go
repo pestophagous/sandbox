@@ -64,3 +64,11 @@ func (i Item) String() string {
 func (i Item) LocalDatetimeStr() string {
 	return i.timeUTC.Local().Format(time.Stamp)
 }
+
+func (i Item) ID() int {
+	return i.id
+}
+
+func (i Item) ActionType() ActionType {
+	return i.action
+}
